@@ -1,0 +1,257 @@
+{
+-sall
+
+PI 3.1415926 def
+E 2.7182818 def
+
+    {
+        -sall
+        b -1 * b 2 ** 4 a c * * - sqrt! + 2 a * /
+        b -1 * b 2 **    4 a c * * - sqrt! - 2 a * /
+        { a b c } reset
+    } quadratic! fn
+
+    {
+        {
+            {
+                0 push_ident
+            } dup 2 % 0 == if {
+                1 -
+                1 push_ident
+            } else
+            2 /
+        } 32 times
+        { concatf } 32 times
+        drop
+        out
+    } bin32! fn
+
+{   
+    {
+        {
+            0 push_ident
+        } dup 2 % 0 == if {
+            1 -
+            1 push_ident
+        } else
+        2 /
+    } 64 times
+    { concatf } 64 times
+    drop
+    out
+} bin64! fn
+
+{
+    0.5 **
+} sqrt! fn
+
+{
+    load_file
+} import! fn
+
+{
+    -sall
+    _size size! def
+    sum! _size /
+    { _size } reset
+} mean! fn
+
+{
+    { todo } err
+} variance! fn
+
+{
+    sort!
+    { todo } err
+} median! fn
+
+{
+    { todo } err
+} sort! fn
+
+{
+    -sall
+    _ang_ def
+    _ang_ sin! _sin_res_ def
+    _ang_ cos! _cos_res_ def
+    _sin_res_ _cos_res_ /
+    { _ang_ _sin_res_ _cos_res_ } reset
+} tan! fn
+
+{
+    dup cos! swap! sin! /
+} cot! fn
+
+{
+    cos! 1 swap! /
+} sec! fn
+
+{
+    sin! 1 swap! /
+} csc! fn
+
+{
+    -sall
+    _angle_ def
+    _step_ 0 def
+    1
+    {
+        -sall
+        _step_ 2 +     { _step_ } reset _step_ def
+        dup _angle_ * _angle_ * -1 * _step_ / _step_ 1 - /
+    } 200 times
+    { _angle_ _step_ } reset
+   sum!
+} cos! fn
+
+{
+    reverse!
+    {
+        append!
+    } size! times
+    { <-- (top) } flush
+} dump! fn
+
+{
+    -sall
+    _angle_ def
+    _step_ 1 def
+    _angle_
+    {
+        -sall
+        _step_ 2 + { _step_ } reset _step_ def
+        dup  _angle_ * _angle_ * -1 * _step_ / _step_ 1 - /
+    } 200 times
+    { _angle_ _step_ } reset
+   sum!
+} sin! fn
+
+{
+    {
+        1
+    } dup 0 <= if {
+        expand! drop prod!
+    } else
+} factorial! fn
+
+{
+    dup dup
+    {
+        -- dup
+    } times
+    drop
+} expand! fn
+
+{
+    -sall
+    reverse!
+    __n def
+    reverse!
+    __n
+    { __n } reset
+} rot! fn
+
+{
+    -sall
+    _n def _m def
+    {
+        _n
+    } _n _m > if {
+        _m
+    } _m _n > elif {
+        _m
+    } else
+    { _n _m } reset
+} max! fn
+
+{
+    -sall
+    _n def _m def
+    {
+        _m
+    } _n _m > if {
+        _n
+    } _n _m < elif {
+        _m
+    } else
+    { _n _m } reset
+} min! fn
+
+{
+    {
+        append!
+    } size! times
+    exec!
+} reverse! fn
+
+{
+    reverse!
+        {
+        append!
+    } size! times
+    out
+} show! fn
+
+{
+    -sall
+    __x__ fn
+    __x__
+    { __x__ } reset
+} exec! fn
+
+{
+    push_ident concatf
+} append! fn
+
+{
+    180 / PI *
+} rad! fn
+
+{ 
+    { + } STACK_SIZE 1 - times 
+} sum! fn
+
+{
+    { * } STACK_SIZE 1 - times
+} prod! fn
+
+{ 
+    -sall
+    {
+        break
+    } STACK_SIZE 2 < if
+    k def n def 
+    n n! n k - n! /
+    { k n } reset
+} permutation! fn
+
+{
+    -sall
+    {
+        break
+    }   size! 2 < if
+    dup _k def 
+    permutation _k n! /
+    { _k } reset
+} choose! fn
+
+{
+    -sall
+    front def back def
+    front back
+    { front back } reset
+} swap! fn
+
+        {
+    -sall
+    front def back def
+    back front back
+    { front back } reset
+} over! fn
+
+{
+    STACK_SIZE
+} size! fn
+
+} std namespace
+
