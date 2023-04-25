@@ -64,7 +64,8 @@ The -s flag removes the ```[Out] >> ``` output once, and -sall will prevent all 
 [In] << 
 ```
 
-where all outputs were suppressed.\n
+where all outputs were suppressed.
+
 \* exceptions to this are the keywords: namespace, puts, and " because they are new additions.
 
 ### Loops
