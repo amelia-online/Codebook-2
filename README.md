@@ -27,11 +27,20 @@ c 2 def
   "Not implemented.\n" puts
 } else
 ```
+
+## Convention
+
+It's important to know the convention of TSL for organizational purposes. Some things to note are:
+* Functions: user-defined function names end with a '!'. There is nothing in place to enforce this, but I think it's good practice.
+* Variables: user-defined variable names are all uppercase.
+Keywords have nothing special about them; they're all lowercase, and that's why it's important to use these conventions in order
+to differentiate Codebook keywords from user-defined function and variables. 
+
 ## Features
 
 ### Flags
 
-In the application itself, you can enter "help" which will list all keywords divided into categories. Among those, you'll see 
+In the application itself, you can enter "help" which will list all keywords divided into categories, with some exceptions\*. Among those, you'll see 
 **FLAGS**. As of now, the only flags are -s and -sall, which mean "suppress" and "suppress all" respectively. When a statement like ```a 0 def```
 is executed, a message is printed:
 
@@ -56,3 +65,5 @@ The -s flag removes the ```[Out] >> ``` output once, and -sall will prevent all 
 ```
 
 where all outputs were suppressed.
+\* exceptions to this are the keywords: namespace, puts, and " because they are new additions.
+
