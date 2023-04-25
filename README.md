@@ -27,3 +27,30 @@ c 2 def
   "Not implemented.\n" puts
 } else
 ```
+## Features
+
+In the application itself, you can enter "help" which will list all keywords divided into categories. Among those, you'll see 
+**FLAGS**. As of now, the only flags are -s and -sall, which mean "suppress" and "suppress all" respectively. When a statement like ```a 0 def```
+is executed, a message is printed:
+
+```TSL
+[In] << a 0 def
+[Out] >> a = 0
+```
+
+The -s flag removes the ```[Out] >> ``` output once, and -sall will prevent all outputs in the code block. For example:
+
+```TSL
+[In] << -s a 0 def b 0 def
+[Out] >> b = 0
+```
+
+-s only prevented a = 0 from being printed, as opposed to:
+
+```TSL
+[In] << -sall a 0 def b 1 def
+
+[In] << 
+```
+
+where all outputs were suppressed.
