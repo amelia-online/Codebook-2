@@ -28,6 +28,9 @@ c 2 def
 } else
 ```
 
+Notice how the if, elif, and else come after the code that will run if the condition is true, and the ```puts``` comes after the string it 
+will print.
+
 ## Convention
 
 It's important to know the convention of TSL for organizational purposes. Some things to note are:
