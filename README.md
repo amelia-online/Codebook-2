@@ -64,6 +64,18 @@ The -s flag removes the ```[Out] >> ``` output once, and -sall will prevent all 
 [In] << 
 ```
 
-where all outputs were suppressed.
+where all outputs were suppressed.\n
 \* exceptions to this are the keywords: namespace, puts, and " because they are new additions.
 
+### Loops
+
+Loops are imperfect in TSL--there is no functioning while loop or for loop, only a ```times``` loop. Essentially, this means you can have certain code
+run a specific amount of times. For example:
+
+```TSL
+{
+  { + } size! 1 - times
+} sum! fn
+```
+
+is the function defintion for the ```sum!``` function. It sums every item on the stack. ```{ + } size! 1 - times``` uses the ```+``` operator the size of the stack minus one times, where ```size!``` is essentially a macro for the ```STACK_SIZE``` variable which holds the size of the stack.
