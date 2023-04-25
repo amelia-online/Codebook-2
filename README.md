@@ -7,6 +7,41 @@ that's used to write functions and interact with the stack. **Disclaimer: I am n
 a background in compilers, file-lexing, etc.; this is a personal project I made in my free time. I do not have time to dedicate to bug-fixing or
 adding new features. In this case, my concern is not runtime or memory efficiency, rather my main concern is ease of computation, which I hope this calculator provides.**
 
+# Postfix (RPN) Calculators
+
+This calculator uses Reverse-Polish Notation (RPN) instead of regular infix notation. for example, 5 + 5 would be written as 5 5 +.
+
+## This Calculator
+
+This calculator runs as a REPL by default, but there is a plan to implement running scripts independently from the REPL.
+When doing a calculation, the last number on the stack is printed. For example:
+```TSL
+[In] << 5 5 +
+[Out] >> 10
+```
+the input is ```5 5 +```, and the result, as printed in the ```[Out] >>``` line, is 10.
+```TSL
+[In] << 5 6
+[Out] >> 6
+```
+In this case, since no operation was done on the 5 and 6, the last item on the stack is outputted, which happens to be 6.
+Codebook 2 also supports string literals:
+```TSL
+[In] << "Hello, world!" puts
+Hello, world!
+```
+above is a simple "Hello, world!" program.
+
+It's important to note that you can use ```puts``` on things without quotations, but it will not support escapes:
+```TSL
+[In] << Hello\nworld puts
+Hello\nworld
+[In] << "Hello\nworld" puts
+Hello
+world
+```
+so using quotation marks is encouraged.
+
 # The Scripting Language
 
 ## Overview
