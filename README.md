@@ -7,4 +7,23 @@ adding new features.**
 
 # The Scripting Language
 
-...
+## Overview
+
+The scripting language, which for now I'll just call TSL (The Scripting Language), is a postfix/stack-based language, meaning it feels like you're 
+writing the language backwards, in a sense, or at least in this case.
+
+For example, here is an if-elif-else block:
+
+```TSL
+-sall
+a 0 def
+b 1 def
+c 2 def
+{ 
+  "Not implemented.\n" puts
+} a b == if {
+  "Not implemented.\n" puts
+} b c == elif {
+  "Not implemented.\n" puts
+} else
+```
