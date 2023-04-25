@@ -29,6 +29,8 @@ c 2 def
 ```
 ## Features
 
+### Flags
+
 In the application itself, you can enter "help" which will list all keywords divided into categories. Among those, you'll see 
 **FLAGS**. As of now, the only flags are -s and -sall, which mean "suppress" and "suppress all" respectively. When a statement like ```a 0 def```
 is executed, a message is printed:
