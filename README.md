@@ -14,6 +14,7 @@ This calculator uses Reverse-Polish Notation (RPN) instead of regular infix nota
 ## This Calculator
 
 This calculator runs as a REPL by default, but you can run scripts by entering ```$ cargo run -- f <filepath>```. These examples use the REPL feature.
+
 When doing a calculation, the last number on the stack is printed. For example:
 ```TSL
 [In] << 5 5 +
@@ -120,6 +121,58 @@ run a specific amount of times. For example:
 ```
 
 is the function defintion for the ```sum!``` function. It sums every item on the stack. ```{ + } size! 1 - times``` uses the ```+``` operator the size of the stack minus one times, where ```size!``` is essentially a macro for the ```STACK_SIZE``` variable which holds the size of the stack.
+
+### Conditionals
+
+As was previously seen, Codebook 2 supports if-elif-else statements. Essentially, when an if/elif is encountered, it checks the last number on the stack.
+* If it's 1: the associated code block is exectuted, and
+* If it's 0: execution continues.
+Codebook provides equality operators that return either 0 or 1: ==, !=, <, >, <=, >=, where 1 = true and 0 = false.
+There is no boolean primitive in Codebook 2.
+
+```
+{
+  "5 equals 2!\n" puts
+} 5 2 == if {
+  "5 does not equal 2.\n" puts
+} 5 2 != elif {
+  "Unreachable\n"
+} else
+```
+
+Output:
+
+```
+5 does not equal 2.
+```
+
+### Keywords
+
+Codebook 2 has a large collection of keywords, in fact, it probably has too many. I will go over some of the more important ones.
+
+#### dup
+
+_Duplicates the last number on the stack_
+```
+[In] << 5 dup +
+[Out] >> 10
+```
+
+#### drop
+
+_Deletes the number at the top of the stack_
+```
+[In] << 5 0 5 drop
+[Out] >> 0
+```
+
+#### def
+
+_Defines a variable_
+```
+[In] << A 200 def
+[Out] >> A = 200
+```
 
 ## Codebook 3 is under development!
 
