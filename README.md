@@ -13,7 +13,7 @@ This calculator uses Reverse-Polish Notation (RPN) instead of regular infix nota
 
 ## This Calculator
 
-This calculator runs as a REPL by default, but there is a plan to implement running scripts independently from the REPL.
+This calculator runs as a REPL by default, but you can run scripts by entering ```$ cargo run -- f <filepath>```. These examples use the REPL feature.
 When doing a calculation, the last number on the stack is printed. For example:
 ```TSL
 [In] << 5 5 +
