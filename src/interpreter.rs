@@ -313,7 +313,7 @@ pub fn print_help() {
     print_help_item("oerr", "Prints a suppressable desired message from [Error].");
     print_help_item("flush", "Prints a desired message w/o any source.");
     print_help_item("def", "Defines a variable using the last identifier and number.");
-    print_help_item("pub fn", "Defines a function using the last {code} and identifier.");
+    print_help_item("fn", "Defines a function using the last {code} and identifier.");
     print_help_item("{", "Begins adding tokens to code.");
     print_help_item("}", "Ends adding tokens to innermost scope.");
     print_help_item("load_file", "Loads a file into the calculator.");
@@ -831,6 +831,16 @@ pub fn interpret_line(line: String, info: &mut SessionInfo) {
                 for _ in 0..times as i32 {
                     interpret_vec(&copy, info);
                 }
+            }
+
+            "formats" => {
+                if info.idents.is_empty() || info.stack.is_empty(){
+                    error("Missing arguments required for fomatting.");
+                    break;
+                }
+
+                let mut target = info.idents.pop().unwrap();
+                error("Not implemented.");
             }
 
             "puts" => {

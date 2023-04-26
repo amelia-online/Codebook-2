@@ -1,5 +1,9 @@
 -sall
 
 {
-    "Hello, world!\n" puts
-} 5 times
+  "5 equals 2!\n" puts
+} 5 2 == if {
+  "5 does not equal 2.\n" puts
+} 5 2 != elif {
+  "Unreachable\n"
+} else
