@@ -155,6 +155,7 @@ pub fn get_string(line: &String, start: usize) -> (String, usize) {
 }
 
 pub fn tokenize(line: &String) -> Vec<String> {
+    //println!("{line}");
     let mut tokens: Vec<String> = Vec::new();
     let mut index = 0;
     let line_chars: Vec<char> = line.chars().collect();
@@ -179,9 +180,13 @@ pub fn tokenize(line: &String) -> Vec<String> {
             }
 
             '\"' => {
+                let mut res = String::from('\"');
                 let (str, new_index) = get_string(&line, index+1);
+                res.push_str(str.as_str());
+                res.push('\"');
+                
                 index = new_index+1;
-                tokens.push(str);
+                tokens.push(res);
             }
 
             _ => current_token.push(ch),
@@ -422,6 +427,16 @@ pub fn interpret_line(line: String, info: &mut SessionInfo) {
                     break;
                 }
                 info.script.clear();
+            }
+
+            "print" => {
+                if info.stack.is_empty() {
+                    error("Nothing to print.");
+                    break;
+                }
+
+                let item = info.stack.pop().unwrap();
+                println!("{item}");
             }
 
             "script" => {
@@ -825,7 +840,8 @@ pub fn interpret_line(line: String, info: &mut SessionInfo) {
                 }
 
                 let item = info.idents.pop().unwrap();
-                print!("{item}");
+                let (res, _)= get_string(&item, 1);
+                print!("{res}");
                 std::io::stdout().flush().expect("");
             }
 

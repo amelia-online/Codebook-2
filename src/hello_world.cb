@@ -1,6 +1,5 @@
 -sall
 
-./src/config.cb load_file
-
-
-"Hello, world!\n" puts
+{
+    "Hello, world!\n" puts
+} 5 times
