@@ -1,0 +1,6 @@
+-sall
+
+./src/config.cb load_file
+
+
+"Hello, world!\n" puts

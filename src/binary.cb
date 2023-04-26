@@ -1,9 +1,0 @@
--sall
-
-{
-    { todo } err
-} bin! fn
-
-{   
-    { todo } err
-} hex! fn
