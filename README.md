@@ -114,7 +114,7 @@ where all outputs were suppressed.
 Loops are imperfect in CSL--there is no functioning while loop or for loop, only a ```times``` loop. Essentially, this means you can have certain code
 run a specific amount of times. For example:
 
-``CSL
+```CSL
 {
   { + } size! 1 - times
 } sum! fn
