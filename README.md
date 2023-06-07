@@ -71,7 +71,7 @@ will print.
 
 ## Convention
 
-It's important to know the convention of TSL for organizational purposes. Some things to note are:
+It's important to know the convention of CSL for organizational purposes. Some things to note are:
 * Functions: user-defined function names end with a '!'. There is nothing in place to enforce this, but I think it's good practice.
 * Variables: user-defined variable names are all uppercase.
 Keywords have nothing special about them; they're all lowercase, and that's why it's important to use these conventions in order
